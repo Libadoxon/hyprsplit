@@ -453,6 +453,10 @@ hl.on("config.reloaded", function()
 end)
 
 hl.on("monitor.added", function(monitor)
+    if monitor.is_mirror then
+        return
+    end
+    
     local cursor_no_warps_orig = hl.get_config("cursor.no_warps")
     hl.config({ cursor = { no_warps = true } })
 
